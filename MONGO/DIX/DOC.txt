@@ -1,0 +1,137 @@
+1) restuarants in city New Delhi
+db.restuarants.find({city: "New Delhi"}).count();
+
+
+2) restuarants which more then 4.5 rating
+db.restuarants.find({rating: {$gte: 4.5}}).count();
+
+
+3) Diffrent types of food types offered
+db.products.distinct("foodType");
+
+4) Products Less Then 100 restuarants
+db.products.find({price: {$lte: 100}})
+
+5) Resturants which has more then 500 votes
+db.restuarants.find({votes: {$gte: 500}})
+
+6) No of orders done in the year 2022
+db.orders.find({
+    orderedAt: {
+        $gte: new Date("2021-01-01"),
+        $lte: new Date("2021-12-31"),
+    }
+}).count()
+
+
+7) Products Price range between 100 and 200
+
+db.products.find({
+    price: {
+        $gte: 100,
+        $lte: 200
+    }
+})
+
+
+8) restuarants who offer online delivery & has table delivery
+db.restuarants.find({
+    $and: [
+        {has_online_delivery: true},
+        {has_table_booking: true},
+    ]
+})
+
+
+9) restuarants city is either Kolkata or Gurgaon 
+db.restuarants.find({
+    $or: [
+        { city: "Kolkata"},
+        { city: "Gurgaon" },
+    ]
+})
+
+
+10) Count of Products By Each restuarants
+db.products.aggregate([
+    {$group: {
+        _id: { resturantId: "$resturantId"},
+        count: {$sum: 1}
+    }}
+])
+
+
+
+11) Total Sale Amount for each product
+
+db.orders.aggregate([
+    {$group: {
+        _id: { resturantId: "$productId"},
+        totalSaleAmount: { $sum: { $multiply: ["$price", "$quantity"] } },
+    }}
+])
+
+12) Total Sale for Each Month
+db.orders.aggregate([
+    {$group: {
+        _id: { year: { $year: "$orderedAt" }, month: { $month: "$orderedAt" } },
+        totalCostByMonth: { $sum: { $multiply: ["$price", "$quantity"] } },
+    }}
+])
+
+
+13) Inserting a record to Product Table
+db.products.insertOne({
+    name: "Chicken Burrito",
+    foodType: "Burrito",
+    calories: 687,
+    resturantId: "6285059b0475d9cf81f369ff",
+    price: 151
+})
+
+14) Adding an orderedAt
+db.orders.insertOne({
+    productId: "6285059b0475d9cf81f369ff",
+    quantity: 1,
+    resturantId: "6285066dbf82bb430627cc42",
+    price: 567,
+    orderedAt: "2022-05-18"
+})
+
+
+15) Updating city name New Delhi to Delhi
+db.orders.updateMany(
+    {city: "New Delhi"},
+    {$set: {city: "Delhi"}}
+)
+
+16) Increase price by 10 if it less than 150
+db.products.updateMany(
+    {price: {$lte: 150}},
+    {$inc:{ price: 10}}
+)
+
+17) restuarants wise average price
+
+db.products.aggregate([
+    {
+        $group: {
+            _id: { resturantId: "$resturantId" },
+            averagePrice: { $avg: "$price" }
+        }
+    }
+])
+
+
+18) Delete restuarants which are based on Delhi
+db.restuarants.deleteMany({ city: "Delhi"});
+
+19) Delete products price less then 20
+db.products.deleteMany({ price:{$lte: 50}})
+
+20) Drop table orders
+db.orders.drop();
+
+
+
+

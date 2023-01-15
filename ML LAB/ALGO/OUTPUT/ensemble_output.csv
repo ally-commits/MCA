@@ -1,0 +1,5 @@
+,Alog,Accuracy
+0,Descision tree n_estimators = 400,1.0
+1,Descision tree n_estimators = 200,0.8863822805578343
+2,GaussianNB tree n_estimators = 400,1.0
+3,GaussianNB tree n_estimators = 200,0.8863822805578343

@@ -1,0 +1,303 @@
+//Date: 26-05-2022
+//Write a java application using swings to display a window for accepting two numbers and  perform addition, subtraction, multiplication and division. Create necessary controls such  as textboxes, buttons.
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+class Arith extends JFrame implements ActionListener {
+
+    JButton jb1,jb2,jb3,jb4;
+    JTextField jt1, jt2;
+    JLabel lbl,lba,lbb;
+
+    Arith() {
+    	 
+    	
+        jt1 = new JTextField();
+        jt1.setBounds(90, 50, 150, 30);
+        add(jt1);
+ 
+        
+        jt2 = new JTextField();
+        jt2.setBounds(90, 80, 150, 30);
+        add(jt2);
+
+        lbl = new JLabel("Result :");
+        lbl.setBounds(90, 140, 150, 30);
+        add(lbl);
+
+        jb1 = new JButton("ADD");
+        jb1.setBounds(90, 200, 100, 30);
+        add(jb1);
+        
+        jb2 = new JButton("Subract");
+        jb2.setBounds(90, 240, 100, 30);
+        add(jb2);
+        
+        jb3 = new JButton("Multiply");
+        jb3.setBounds(90, 280, 100, 30);
+        add(jb3);
+        
+        jb4 = new JButton("Divide");
+        jb4.setBounds(90, 320, 100, 30);
+        add(jb4);
+
+        jb1.addActionListener(this);
+        jb2.addActionListener(this);
+        jb3.addActionListener(this);
+        jb4.addActionListener(this);
+
+        setLayout(null);
+        setSize(600, 400);
+        setVisible(true);
+
+    }
+
+    public void actionPerformed(ActionEvent e) {
+
+        int a = Integer.parseInt(jt1.getText());
+        int b = Integer.parseInt(jt2.getText());
+        int c = 0;
+
+        if (e.getSource().equals(jb1)) {
+            c = a + b;
+            lbl.setText(String.valueOf(c));
+        } else if (e.getSource().equals(jb2)) {
+            c = a - b;
+            lbl.setText(String.valueOf(c));
+        } else if (e.getSource().equals(jb3)) {
+            c = a * b;
+            lbl.setText(String.valueOf(c));
+        } else if (e.getSource().equals(jb4)) {
+            c = a / b;
+            lbl.setText(String.valueOf(c));
+        }
+    }
+
+    public static void main(String args[]) {
+    	Arith t = new Arith();
+    }
+}
+
+
+
+
+//Date: 26-05-2022
+//Create a java application to display a login window and navigate to a new window with  welcome message on successful authentication.
+
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
+class Auth extends JFrame implements ActionListener {
+
+    JButton jb1;
+    JTextField jt1, jt2;
+    JLabel lbl,lba,lbb;
+    JFrame frame;
+    Auth() {
+    	frame = new JFrame("Auth");
+    	
+        lba = new JLabel("Enter Username");
+        lba.setBounds(90, 30, 150, 30);
+        add(lba);
+        
+        jt1 = new JTextField();
+        jt1.setBounds(90, 55, 150, 30);
+        add(jt1);
+ 
+        lbb = new JLabel("Enter Password");
+        lbb.setBounds(90, 90, 150, 30);
+        add(lbb);
+        
+        jt2 = new JTextField();
+        jt2.setBounds(90, 115, 150, 30);
+        add(jt2);
+
+        lbl = new JLabel("");
+        lbl.setBounds(90, 140, 150, 30);
+        add(lbl);
+        
+        
+
+        jb1 = new JButton("Login");
+        jb1.setBounds(90, 180, 100, 30);
+        add(jb1);
+        jb1.addActionListener(this);
+
+        setLayout(null);
+        setSize(600, 400);
+        setVisible(true);
+
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        String username = jt1.getText();
+        String password = jt2.getText();
+        
+        if(username.equals("alwin") && password.equals("password")) {
+        	 JWindow window = new JWindow(frame);
+        	 JPanel panel = new JPanel();
+        	 
+        	 JLabel label = new JLabel("Welcome Alwin Your have logged in successfully");
+        	 label.setBounds(90, 140, 150, 30);
+        	 
+        	 panel.add(label);
+             window.add(panel);
+             	
+             window.setSize(600, 400);
+             window.setVisible(true);
+             
+        } else {
+        	lbl.setText("Error: Invalid credentials provided");
+        } 
+         
+    }
+
+    public static void main(String args[]) {
+    	 Auth t = new  Auth();
+    }
+}
+
+
+
+
+
+
+//Date: 26-05-2022
+//Implement the previous question, using a combo box to list out the options: addition,  subtraction, multiplication and division for selecting the operation.
+
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
+class ComboArith extends JFrame implements ActionListener {
+
+    JButton jb1,jb2,jb3,jb4;
+    JTextField jt1, jt2;
+    JLabel lbl,lba,lbb;
+    JComboBox c1;
+ 
+	ComboArith() {
+		JFrame frame = new JFrame("Combo Box");
+    	String[] operations = { "Add", "Subract", "Multiply", "Divide"};
+    	
+    	
+        jt1 = new JTextField();
+        jt1.setBounds(90, 50, 150, 30);
+        add(jt1);
+ 
+        
+        jt2 = new JTextField();
+        jt2.setBounds(90, 80, 150, 30);
+        add(jt2);
+
+        lbl = new JLabel("Result :");
+        lbl.setBounds(90, 140, 150, 30);
+        add(lbl);
+ 
+        c1 = new JComboBox(operations);
+        c1.setBounds(90, 200, 150, 30);
+        c1.setSelectedIndex(0);
+        c1.addActionListener(this);
+        add(c1);
+ 
+
+        setLayout(null);
+        setSize(600, 400);
+        setVisible(true);
+
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        int a = Integer.parseInt(jt1.getText());
+        int b = Integer.parseInt(jt2.getText());
+        int c = 0;
+        String opr = c1.getSelectedItem().toString();
+        
+        
+        if (opr.equals("Add")) {
+            c = a + b;
+            lbl.setText(String.valueOf(c));
+        } else if(opr.equals("Subract")) {
+        	c = a - b;
+            lbl.setText(String.valueOf(c));
+        } else if(opr.equals("Multiply")) {
+        	c = a * b;
+            lbl.setText(String.valueOf(c));
+        } else if(opr.equals("Divide")) {
+        	c = a / b;
+            lbl.setText(String.valueOf(c));
+        } 
+    }
+
+    public static void main(String args[]) {
+    	ComboArith t = new ComboArith();
+    }
+}
+
+
+
+
+//Date: 26-05-2022
+//Develop a swing application to perform currency conversion from Rupee to Dollar.
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+
+import javax.swing.*;
+
+class Currency extends JFrame implements ActionListener {
+
+    JButton jb1;
+    JTextField jt1, jt2;
+    JLabel lbl,lba,lbb;
+     
+    Currency() {	
+        lba = new JLabel("Enter Amount in Rupees:");
+        lba.setBounds(90, 30, 150, 30);
+        add(lba);
+        
+        jt1 = new JTextField();
+        jt1.setBounds(90, 55, 150, 30);
+        add(jt1);
+
+        lbl = new JLabel("");
+        lbl.setBounds(90, 90, 150, 30);
+        add(lbl);
+
+        jb1 = new JButton("Exchange");
+        jb1.setBounds(90, 120, 100, 30);
+        add(jb1);
+        jb1.addActionListener(this);
+
+        setLayout(null);
+        setSize(600, 400);
+        setVisible(true);
+
+    }
+
+    public void actionPerformed(ActionEvent e) {
+    	int rupee = Integer.parseInt(jt1.getText());
+        double dollar = rupee / 77.77;
+        DecimalFormat df = new DecimalFormat("###.##");
+        
+        lbl.setText("Dollar: " + df.format(dollar));	
+        
+    }	
+
+    public static void main(String args[]) {
+    	Currency t = new  Currency();
+    }
+}

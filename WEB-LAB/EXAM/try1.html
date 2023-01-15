@@ -1,0 +1,34 @@
+<html>
+
+<body>
+    <div id="div1">
+        <p id="p1">This is a paragraph.</p>
+        <p id="p2">This is another paragraph.</p>
+    </div>
+    <script>
+        var para1 = document.createElement("p");
+        var node = document.createTextNode("Hey There")
+        para1.appendChild(node)
+
+        let element = document.getElementById("div1")
+        let child = document.getElementById("p2");
+
+        // element.insertBefore(para1, child)
+        // element.appendChild(para1)
+        // element.replaceChild(para1, child)
+        // element.removeChild(child)
+        // element.setAttribute("align","center")
+        // element.getAttribute("aling")
+
+        let a = 10;
+        
+        if(true) {
+            a = 20;
+        }
+        // a    = 30;
+
+        console.log(a)
+    </script>
+</body>
+
+</html>

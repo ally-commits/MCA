@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookie</title>
+</head>
+<body>
+    Name: <input type="text" id="name" /> <br />
+    Password: <input type="text" id="password" /> <br />
+    <button onclick="onAdd()">Add</button>
+
+    <table border="2" id="table">
+        <tr>
+            <th>Name</th>
+            <th>Password</th>
+        </tr>
+    </table>
+    <script>
+        function onAdd() {
+            let name = document.getElementById("name");
+            let password = document.getElementById("password");
+
+            document.cookie = name.value + "=" + password.value;
+            onDisplay();
+        }
+        function onDisplay() {
+            let table = document.getElementById("table");
+            let stringHtml = "<tr><th>Name</th><th>Password</th></tr>"
+            
+            document.cookie.split(";").forEach(user => {
+                let string = "<tr>";
+                user.split("=").forEach(value => {
+                    string += "<td>" + value + "</td>"
+                })
+                string += "</tr>";
+                stringHtml += string;
+            }); 
+            table.innerHTML = stringHtml;
+        }
+        onDisplay();
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATE</title>
+</head>
+<body>
+    <script>
+        // let date = new Date();
+        
+        // console.log(date.getDate())
+        // console.log(date.getFullYear())
+        // console.log(date.getDay())
+        // console.log(date.getUTCDate())
+        // console.log(date.getUTCFullYear())
+        // console.log(date.getTimezoneOffset())
+        // console.log(date.toJSON())
+        // console.log(date.getUTCFullYear())
+        
+        
+        // console.log(date.getUTCHours())
+        // console.log(date.getUTCMinutes())
+        
+        const dateFormat = new Date();
+        
+        const options  = {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'}
+        console.log(dateFormat.toLocaleDateString(undefined,options))
+        console.log(dateFormat.toLocaleDateString('hi',options))
+        console.log(dateFormat.toLocaleDateString('kn', options))
+ 
+        
+    </script>
+</body>
+</html>

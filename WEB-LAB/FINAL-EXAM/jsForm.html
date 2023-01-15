@@ -1,0 +1,16 @@
+<form action="#" onsubmit="return onSubmit()">
+    Name:<input type="text" id="name" /> <span id="name-error"></span><br />
+    <input type="submit" />
+</form>
+
+<script>
+    function onSubmit() {
+        let nameValue = document.getElementById("name").value;
+        if(nameValue == "") {
+            document.getElementById("name-error").innerText = "Field Cannot be empty";
+        } else {
+            document.getElementById("name-error").innerText = "";
+        }
+        return false;
+    }
+</script>

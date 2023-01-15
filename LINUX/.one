@@ -1,0 +1,532 @@
+File-related commands: Test the function of each of the following.
+a) File permissions: –r, –w, –x
+
+
+echo "Enter file name"
+read filename
+
+if [ -r $filename ]
+then
+        echo "File has read permission"
+else
+        echo "File does not have read permission"
+fi
+
+
+if [ -w $filename ]
+then
+        echo "File has write permission"
+else
+        echo "File does not have write permission"
+fi
+
+
+if [ -x $filename ]
+then
+        echo "File has execute permission"
+else
+        echo "File does not have execute permission"
+fi
+
+
+b) File existence: –f, –d, –e, –s
+
+echo "Enter file name"
+read filename
+
+if [ -f $filename ]
+then
+        echo "File exists and it is a file"
+else
+        echo "File does not exists or not a file"
+fi
+
+
+if [ -d $filename ]
+then
+        echo "File exits and is a directory"
+else
+        echo "File does not exits or not a directory"
+fi
+
+
+if [ -e $filename ]
+then
+        echo "File exits"
+else
+        echo "File does not exists"
+fi
+
+
+if [ -s $filename ]
+then
+        echo "File exists and not empty"
+else
+        echo "File does not exits or is empty"
+fi
+
+
+Write and execute shell scripts for the following (Using file related commands):
+a) List all files in the directory which have a read permission.
+
+
+readCount=0
+
+for file in *
+do
+        if [ -r $file ]
+        then
+                readCount=`expr $readCount + 1`;
+        fi
+
+done
+
+echo Read Permission Files Count: $readCount
+
+b) Input a file name. Output whether it has read, write and execute permissions or not.
+
+echo "Enter a filename"
+read filename
+
+if [ -r $filename ]
+then
+        echo "File has read permission"
+else
+        echo "File does not have read permission"
+fi
+
+
+if [ -w $filename ]
+then
+        echo "File has write permission"
+else
+        echo "File does not have write permission"
+fi
+
+if [ -x $filename ]
+then
+        echo "File has execute permission"
+else
+        echo "File does not have execute permission"
+fi
+
+
+c) Accept a file name. Check whether it has write permission. If yes, append some new text to it, otherwise display an error message.
+
+echo "Enter a filename"
+read filename
+
+if [ -w $filename ]
+then
+        echo "Random text" | cat >> $filename
+        echo "File contents:"
+        cat $filename
+else
+        echo "File does not have write permission"
+fi
+
+
+
+Write and execute shell scripts for the following (Using file related commands):
+a) Count and display the number of ordinary files, hidden files and sub-directories present in the working directory.
+
+fileCount=0
+hiddenFileCount=0
+dirCount=0
+
+
+for file in *
+do
+        if [ -d $file ]
+        then
+                dirCount=`expr $dirCount + 1`
+        elif [ -f $file ]
+        then
+                fileCount=`expr $fileCount + 1`
+        fi
+
+done
+
+for file in .*
+do
+        if [ -d $file ]
+        then
+                dirCount=`expr $dirCount + 1`
+        elif [ -f $file ]
+        then
+                fileCount=`expr $fileCount + 1`
+                hiddenFileCount=`expr $hiddenFileCount + 1`
+        fi
+done
+
+echo Directory Count: $dirCount
+echo Files Count: $fileCount
+echo Hidden File Count: $hiddenFileCount
+
+b) Display the names of all files in the working directory which have size greater than 0.
+
+count=0
+allFiles=0
+for file in *
+do
+        if [ -f $file ]
+        then
+                allFiles=`expr $allFiles + 1`
+                if [ -s $file ]
+                then
+                        echo $file
+                        count=`expr $count + 1`
+                fi
+        fi
+done
+
+echo Files which has size greator than zero: $count out of $allFiles files
+
+
+
+File-related commands: Test the function of each of the following.
+a) File permissions: –r, –w, –x
+
+
+echo "Enter file name"
+read filename
+
+if [ -r $filename ]
+then
+        echo "File has read permission"
+else
+        echo "File does not have read permission"
+fi
+
+
+if [ -w $filename ]
+then
+        echo "File has write permission"
+else
+        echo "File does not have write permission"
+fi
+
+
+if [ -x $filename ]
+then
+        echo "File has execute permission"
+else
+        echo "File does not have execute permission"
+fi
+
+
+b) File existence: –f, –d, –e, –s
+
+echo "Enter file name"
+read filename
+
+if [ -f $filename ]
+then
+        echo "File exists and it is a file"
+else
+        echo "File does not exists or not a file"
+fi
+
+
+if [ -d $filename ]
+then
+        echo "File exits and is a directory"
+else
+        echo "File does not exits or not a directory"
+fi
+
+
+if [ -e $filename ]
+then
+        echo "File exits"
+else
+        echo "File does not exists"
+fi
+
+
+if [ -s $filename ]
+then
+        echo "File exists and not empty"
+else
+        echo "File does not exits or is empty"
+fi
+
+
+Write and execute shell scripts for the following (Using file related commands):
+a) List all files in the directory which have a read permission.
+
+
+readCount=0
+
+for file in *
+do
+        if [ -r $file ]
+        then
+                readCount=`expr $readCount + 1`;
+        fi
+
+done
+
+echo Read Permission Files Count: $readCount
+
+b) Input a file name. Output whether it has read, write and execute permissions or not.
+
+echo "Enter a filename"
+read filename
+
+if [ -r $filename ]
+then
+        echo "File has read permission"
+else
+        echo "File does not have read permission"
+fi
+
+
+if [ -w $filename ]
+then
+        echo "File has write permission"
+else
+        echo "File does not have write permission"
+fi
+
+if [ -x $filename ]
+then
+        echo "File has execute permission"
+else
+        echo "File does not have execute permission"
+fi
+
+
+c) Accept a file name. Check whether it has write permission. If yes, append some new text to it, otherwise display an error message.
+
+echo "Enter a filename"
+read filename
+
+if [ -w $filename ]
+then
+        echo "Random text" | cat >> $filename
+        echo "File contents:"
+        cat $filename
+else
+        echo "File does not have write permission"
+fi
+
+
+
+Write and execute shell scripts for the following (Using file related commands):
+a) Count and display the number of ordinary files, hidden files and sub-directories present in the working directory.
+
+fileCount=0
+hiddenFileCount=0
+dirCount=0
+
+
+for file in *
+do
+        if [ -d $file ]
+        then
+                dirCount=`expr $dirCount + 1`
+        elif [ -f $file ]
+        then
+                fileCount=`expr $fileCount + 1`
+        fi
+
+done
+
+for file in .*
+do
+        if [ -d $file ]
+        then
+                dirCount=`expr $dirCount + 1`
+        elif [ -f $file ]
+        then
+                fileCount=`expr $fileCount + 1`
+                hiddenFileCount=`expr $hiddenFileCount + 1`
+        fi
+done
+
+echo Directory Count: $dirCount
+echo Files Count: $fileCount
+echo Hidden File Count: $hiddenFileCount
+
+b) Display the names of all files in the working directory which have size greater than 0.
+
+count=0
+allFiles=0
+for file in *
+do
+        if [ -f $file ]
+        then
+                allFiles=`expr $allFiles + 1`
+                if [ -s $file ]
+                then
+                        echo $file
+                        count=`expr $count + 1`
+                fi
+        fi
+done
+
+echo Files which has size greator than zero: $count out of $allFiles files
+
+
+
+2 a)Input two values. Perform the arithmetic operations +, -, * and / on
+them. Display the results.
+
+
+read val1
+read val2
+
+addition=`expr $val1 + $val2`
+sub=`expr $val1 - $val2`
+mul=`expr $val1 \* $val2`
+div=`expr $val1 / $val2`
+
+
+echo Addition: $addition
+echo Subraction: $sub
+echo Multiply: $mul
+echo Division: $div
+
+
+
+
+
+
+2 b) Input a file name. Display its attributes and contents
+
+echo "Enter file name"
+read filename
+
+ls $filename -l
+cat $filename
+
+
+
+
+
+
+2 c) Input a file name. Copy it to another file and then rename it (The
+names of the second and third files should be input).
+
+echo "Enter source file name"
+read sourcefilename
+
+echo "Enter copy file name"
+read copyfilename
+
+echo "Enter renameing file name"
+read renamefilename
+
+cp $sourcefilename $copyfilename
+
+mv $sourcefilename $renamefilename
+
+
+
+
+
+
+3 a)Input a number. Output whether it is odd or even
+
+echo "Enter a number:"
+read a1
+
+
+if [ `expr $a1 % 2` -eq 0 ]
+then
+        echo "Even Nunmber"
+else
+        echo "Odd Number"
+fi
+
+
+
+
+
+
+3 b)Input two numbers. Compare them using if statement and output their
+relative magnitudes.
+echo "Enter 2 numbers:"
+read a1
+read a2
+
+if [ $a1 -gt $a2 ]
+then
+        echo $a1 is greator
+else
+        echo $a2 is greator
+
+fi
+
+
+
+
+
+
+3 c) Input two numbers. Display all numbers between (including) them
+using while statement. Calculate their sum using until statement and
+display it
+
+echo "Enter first number:"
+read a1
+
+echo "Enter second number:"
+read a2
+
+sum=0
+a1val=$a1;
+
+while [ $a1 -le $a2 ]
+do
+        echo $a1
+        a1=`expr $a1 + 1`
+done
+
+
+until [ ! $a1val -le $a2 ]
+do
+        sum=`expr $sum + $a1val`
+        a1val=`expr $a1val + 1`
+done
+
+echo "Sum:" $sum
+
+
+
+
+
+
+
+4 a) Input a number. Output whether it is zero or non-zero.
+echo "Enter a number"
+read a;
+
+if [ $a -eq 0 ]
+then
+        echo "Zero"
+else
+        echo "Non-Zero"
+fi
+
+
+
+
+
+
+4 b) Input a character. Output whether is an upper-case alphabet, a lowercase alphabet, a digit or a special character.
+
+echo "Enter a character"
+read char
+
+case $char in
+[A-Z]) echo "Uppercase Character";;
+[a-z]) echo "Lowercase Character";;
+[0-9]) echo "Digit";;
+
+*) echo "Special Charactor";;
+
+esac
+
+
+

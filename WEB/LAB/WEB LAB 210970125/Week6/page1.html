@@ -1,0 +1,15 @@
+<!-- Write a JavaScript to create a new browser window and display some text in that -->
+<!-- window. Put the script into a suitable HTML page and test it. -->
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window</title>
+</head>
+<body> 
+    <script> 
+        let title = prompt("Enter some title");
+        open(`page2.html?title=${title}`,"_blank")
+    </script>
+</body>
+</html>

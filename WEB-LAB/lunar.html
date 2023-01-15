@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <title>Lunar Eclipse</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .sun {
+            width: 250px;
+            height: 250px;
+            border-radius: 100%;
+            background-color: white;
+            animation: lunar-shadow infinite 8s cubic-bezier(0,0,0,0);
+        }
+        .moon {
+            width: 252px;
+            height: 252px;
+            border-radius: 100%;
+            position: absolute;
+            background-color: black;
+            animation: lunar infinite 8s cubic-bezier(0,0,0,0);
+        }
+        @keyframes lunar {
+            0% {
+                left: 30%;
+            } 
+            100% {
+                left: 70%;
+            }
+        }
+        @keyframes lunar-shadow {
+            0% {
+                box-shadow: 0px 0px 30px rgba(0,0,0);
+            } 
+            30% {
+                box-shadow: 0px 0px 100px white;
+            }
+            50% {
+                box-shadow: 0px 0px 30px white;
+            }
+            100% {
+                box-shadow: 0px 0px 30px rgba(0,0,0);
+            }
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="sun">&nbsp;</div>
+        <div class="moon">&nbsp;</div>
+    </div>
+</body>
+</html>

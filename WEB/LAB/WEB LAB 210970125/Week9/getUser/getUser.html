@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <title>Search User</title>
+</head>
+<body>
+    <script>
+        function showUser(str) {
+            if(str == "") {
+                document.getElementById("textHint").innerHTML = "";
+                return;
+            } else {
+                if(window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    xlmhttp = new ActiveXObject("Microsoft.XMHTTP");
+                }
+
+                xmlhttp.onreadystatechange = function() {
+                    if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        console.log(xmlhttp)
+                        document.getElementById("textHint").innerHTML = xmlhttp.response;
+                    }
+                }
+                xmlhttp.open("GET","getUser.php?q=" + str,true);
+                xmlhttp.send();
+            }
+        }
+    </script>
+    <form>
+        Search Any Record:
+        <select name="users" onchange="showUser(this.value)">
+            <option value="1">Record 1</option>
+            <option value="2">Record 2</option>
+            <option value="3">Record 3</option>
+        </select>
+    </form>
+    <div id="textHint"></div>
+</body>
+</html>

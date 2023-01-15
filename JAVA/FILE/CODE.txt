@@ -1,0 +1,176 @@
+//Create a class called Bank with instance fields for representing each customer’s name, age, account number and balance amount.
+
+import java.util.Scanner;
+import java.io.*;
+
+class Bank implements Serializable {
+    String name;
+    int age, accountNumber, balanceAmount;
+
+
+    transient Scanner sn = new Scanner(System.in);
+
+    void insertData()  {
+        System.out.print("Enter Name:");
+        name = sn.next();
+        System.out.println("Enter Age,Account Number & Balance Amount:");
+        age = sn.nextInt();
+        accountNumber = sn.nextInt();
+        balanceAmount = sn.nextInt();
+    }
+
+    void displayData() {
+        System.out.print("\nName:" + name);
+        System.out.print("\nAge:" + age);
+        System.out.print("\nAccount Number:" + accountNumber);
+        System.out.print("\nBalance Amount:" + balanceAmount);
+    }
+}
+
+class Serial {
+    public static void main(String args[])  {
+
+        try {
+            ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(("account_info.txt")));
+
+            Scanner sn = new Scanner(System.in);
+            System.out.println("Enter n value:");
+            int n = sn.nextInt();
+
+            for(int i=0;i<n;i++) {
+                Bank b = new Bank();
+                b.insertData();
+                output.writeObject(b);
+            }
+
+            ObjectInputStream input = new ObjectInputStream(new FileInputStream(("account_info.txt")));
+
+            System.out.print("Bank Details:");
+            for (int i = 0; i < n; i++) {
+                System.out.print(("\n------------------------"));
+                Bank b;
+                b = (Bank) input.readObject();
+                b.displayData();
+                System.out.print("\n");
+            }
+
+        } catch(Exception e) {
+            System.out.print(e);
+        }
+    }
+}
+
+
+//Write a program to copy the contents of one file to another file using FileReader and FileWriter classes.
+
+import java.io.*;
+import java.util.*;
+
+public class CopyFile {
+    public static void main(String args[]) throws FileNotFoundException,IOException {
+        
+        Scanner sn = new Scanner(System.in);
+
+        FileReader fin = new FileReader("one.txt");
+        FileWriter fwrite = new FileWriter("copy.txt");
+        try {
+            int input;
+            do {
+                input = fin.read();
+                if (input != -1) {
+                    fwrite.write((char) input);
+                }
+            } while (input != -1);
+
+        } catch (Exception e) {
+            System.out.println("I/O Error: " + e);
+        } finally {
+            try {
+                if (fwrite != null)
+                    fwrite.close();
+                if (fin != null)
+                    fin.close();
+            } catch (IOException e2) {
+                System.out.println("Error Closing Output File");
+            }
+        }
+
+    }
+}
+
+
+
+//Create a file containing a set of strings. Read the file, sort the strings and store them in another file.
+
+import java.io.*; 
+import java.util.*;
+
+public class ReadWrite {
+	public static void main(String args[]) throws FileNotFoundException {
+		FileOutputStream fout = new FileOutputStream("src/File.txt");
+		FileInputStream fin = new FileInputStream("src/File.txt");
+		FileOutputStream fwrite = new FileOutputStream("src/SortedFile.txt");
+		Scanner sn = new Scanner(System.in);
+		
+		try {
+			String newStr;
+			char charArr[];
+			for(int i=0;i<3;i++) {
+				System.out.print("Enter a String:");
+				newStr = sn.next();
+				charArr = newStr.toCharArray();
+				for(int j=0;j<newStr.length();j++)
+					fout.write(charArr[j]);
+				fout.write('\n');
+			}
+			
+			int input;
+			int count=0;
+			String strArr[] = new String[10];
+			newStr = "";
+			
+			do {
+				 input = fin.read();
+				 if(input != -1) {
+					 if((char) input == '\n') {
+						 strArr[count++] = newStr;
+						 newStr = "";
+					 } else {
+						 newStr += (char) input;
+					 }
+				 }
+			} while(input != -1);
+ 
+			
+			for(int i=0;i<count;i++) {
+				for(int j=0;j<count;j++) {
+					if(strArr[i].compareTo(strArr[j]) < 0) {
+						String str = strArr[j];
+						strArr[j] = strArr[i];
+						strArr[i] = str;
+					}
+				}
+			}
+			
+			for(int i=0;i<count;i++) {
+				for(int j=0;j<strArr[i].length();j++) {
+					fwrite.write((char) strArr[i].charAt(j));
+				}
+				fwrite.write('\n');
+			}
+			
+			
+			System.out.print("Done..");
+		} catch(Exception e) {
+			 System.out.println("I/O Error: " + e);
+		} finally {
+			try {
+				if(fout != null) fout.close();
+				if(fin != null) fin.close();
+			} catch(IOException e2) {
+				System.out.println("Error Closing Output File");
+			}
+		}
+		 
+	}
+}

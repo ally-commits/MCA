@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <title>Upload Resume</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        .content {
+            width: 500px;
+            height: 500px;
+            padding: 40px;
+            border: 1px solid crimson;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <form action="employee.php" method="POST">
+                First Name: <input type="text" name="firstName" /> <br /><br />
+                Last Name: <input type="text" name="lastName" /> <br /><br />
+                Email: <input type="email" name="email" /> <br /><br />
+                Mobile Number: <input type="tel" name="mobile" /> <br /><br />
+
+                <input type="submit" name="submit" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

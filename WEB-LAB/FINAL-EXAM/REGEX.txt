@@ -1,0 +1,23 @@
+/(?=.*[A-Z])(?=.*[-]).{3,10}/.test("Alwin-Crasta")
+-Should Contain Atleast 1 [A-Z]
+-Should Contain 1 Underscore
+-length between 3,10
+
+------------------------------------------------------------------------------------
+/^[A-Z]{5}-[a-z]{5}$/.test("ALWIN-crast")
+-Should contain only 5 uppercase before -
+-Should contain only 5 lowercase after -
+
+------------------------------------------------------------------------------------
+/(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8}$/.test("Alwina%9")
+-Should contain Atleast 1 [A-Z]
+-Should contain Atleast 1 [a-z]
+-Should contain Atleast 1 [0-9]
+-Should contain Atleast 1 [!@#$%^&*]
+-Should have exactly 8 char
+
+------------------------------------------------------------------------------------
+/^[A-Z]{1}[a-z]{4,}$/.test("Alwin")
+-Should start with uppercase and can have any number of [a-z] after first letter
+
+------------------------------------------------------------------------------------

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window</title>
+</head>
+<body>
+    <h1 id="title"></h1>
+    <a href="page1.html" id="link">Go Back</a>
+
+    <script>
+        let arr = window.location.search.split("=");
+        if(arr.length > 1) {
+            document.getElementById("title").innerText = decodeURI(arr[1]);
+        }  
+    </script>
+</body>
+</html>

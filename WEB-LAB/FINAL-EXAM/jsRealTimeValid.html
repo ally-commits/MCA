@@ -1,0 +1,16 @@
+<div>
+    Name:<input type="text" id="name" onkeyup="onChange(this)"/> <span id="name-error"></span><br />
+    <input type="submit" />
+</div>
+
+<script>
+    function onChange(target) {
+        let nameValue = target.value;
+        if (nameValue.length <  5) {
+            document.getElementById("name-error").innerText = "Name should have atleast 5 characters";
+        } else {
+            document.getElementById("name-error").innerText = "";
+        }
+        return false;
+    }
+</script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <style>
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="h1">Today is Monday</h1>
+
+
+        <form  onsubmit="onSubmitJs();return false" name="form1">
+            <input type="text" placeholder="Name" id="name"  />
+            <span id="name-error"></span>
+            <input type="password" placeholder="Password" id="password"/>
+            <span id="password-error"></span>
+            <input type="Submit" value="Validate">
+        </form>
+
+        <script>
+            function onSubmitJs(e) { 
+                let name = document.getElementById("name");
+                let password = document.getElementById("password");
+
+
+                if(name.value == "") { 
+                    document.getElementById(name.id+ "-error").innerText = '* Field cannot be empty';
+                } else {
+                    document.getElementById(name.id + "-error").innerText = '';
+                }
+
+                if (password.value == "") {
+                    document.getElementById(password.id + "-error").innerText = '* Field cannot be empty';
+                } else {
+                    document.getElementById(password.id + "-error").innerText = '';
+                }
+ 
+
+                // if(name )
+                // alert(name.value)
+                // alert(password.value)
+                // e.preventDefault();
+                // console.log(document.forms.namedItem("form1").elements[0])
+
+                // document.forms.namedItem("form1").elements.forEach(element => {
+                //     console.log(elements)
+                //     // if(element.value == "") {
+                //     //     // document.getElementById(element.name + "-error").innerText = "* Field cannot be empty";
+                //     // }
+                // })
+
+                // console.log(document.forms.item(0).elements);
+                // alert("ONE")
+            }   
+
+            // let element = document.getElementById("h1");
+            // console.log(element)
+            // element.innerText = new Date().toDateString();
+        </script>
+    </body>
+</html>

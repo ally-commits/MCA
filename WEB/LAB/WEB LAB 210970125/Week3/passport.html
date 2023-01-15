@@ -1,0 +1,232 @@
+<!-- Create a web form to depict the given Passport application for by Ministry of CO1 External Affairs , Govt. of India. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Registration</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        .container h1 {
+            font-size: 18px;
+            color: #2364b1;
+        }
+        label {
+            font-size: 13px;
+        }
+        span {
+            font-size: 12px;
+        } 
+        td {
+            padding: 8px 0px;
+            padding-right: 10px;
+        }
+        a {
+            font-size: 12px;
+        }
+        .input {
+            width: 100%;
+            height: 24px;
+            text-indent: 5px;
+            border-color: rgba(0,0,0,0.25);
+            border-width: 0.5px;
+            border-radius: 2px;
+        }
+        .validate {
+            color: red;
+        } 
+        .footerEnd {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .btn {
+            background-color: #2364b1;
+            padding: 5px 10px;
+            color: white;
+            font-weight: bold;
+            margin-left: 10px;
+            border: none;
+        }
+        .btn:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Registration</h1><br />
+        <hr />
+
+        <form action="#">
+            <table cellpadding="4">
+                <tr>
+                    <td><label>Register to apply at <span class="validate">*</span></label></td>
+                    <td>
+                        <input type="radio" name="apply_at" id="CPV Delhi" required/> <label for="CPV Delhi">CPV Delhi</label> <br />
+                        <input type="radio" name="apply_at" id="Passport Office" required/> <label for="Passport Office">Passport Office</label>
+                    </td>
+                    <td><span>Select the 'CPV Delhi' option to apply for Diplomatic/Official passport at Consular, Passport and Visa (CPV) division, Delhi.</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="passport">
+                            Passport Office<span class="validate">*</span>
+                            <span>(As per Present Residential Address)</span>
+                        </label>
+                    </td>
+                    <td>
+                        <select id="passport" class="input" required>
+                            <option value="">----- Select -----</option>
+                            <option value="1">Ahmedabad</option>
+                            <option value="2">Amritsar</option>
+                            <option value="4">Bareilly</option>
+                            <option value="5">Bengaluru</option>
+                            <option value="5">Bhopal</option> 
+                            <option value="3">Bhubaneswar</option>
+                            <option value="10">Chandigarh</option>
+                            <option value="26">Chennai</option>
+                            <option value="11">Cochin</option>
+                            <option value="9">Coimbatore</option>
+                            <option value="14">Dehradun</option>
+                            <option value="15">Delhi</option>
+                            <option value="18">Ghaziabad</option>
+                            <option value="16">Goa</option>
+                            <option value="17">Guwahati</option>
+                            <option value="19">Hyderabad</option>
+                            <option value="23">Jaipur</option>
+                            <option value="21">Jalandhar</option>
+                            <option value="22">Jammu</option>
+                            <option value="8">Kolkata</option>
+                            <option value="24">Kozhikode</option>
+                            <option value="25">Lucknow</option>
+                            <option value="27">Madurai</option>
+                            <option value="6">Mumbai</option>
+                            <option value="29">Nagpur</option>
+                            <option value="30">Patna</option>
+                            <option value="31">Pune</option>
+                            <option value="33">Raipur</option>
+                            <option value="32">Ranchi</option>
+                            <option value="35">Shimla</option>
+                            <option value="34">Srinagar</option>
+                            <option value="36">Surat</option>
+                            <option value="38">Tiruchirappalli</option>
+                            <option value="39">Trivandrum</option>
+                            <option value="321">Vijayawada</option>
+                            <option value="40">Visakhapatnam</option>
+                            </select>
+                        </select>
+                    </td>
+                    <td>
+                        <span>Tibetan Refugees applying for Identity Certificate must register with 'Delhi' Passport Office.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="name">Given Name <span>(max 45 Characters)</span><span class="validate">*</span></label></td>
+                    <td>
+                        <input type="text" id="name" class="input" max="45" required />
+                    </td>
+                    <td>
+                        <span>
+                            <b>First Name + Middle Name</b><br/>
+                            Initials and honorifics (e.g. Dr.,Col.,etc.) are not allowed.
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="surname">Surname (Max 45 Characters)</label>
+                    </td>
+                    <td>
+                        <input type="text" id="surname"  class="input" max=45/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="dob">Date of Birth (DD/MM/YYYY)<span class="validate">*</span></label></td>
+                    <td>
+                        <input type="date"  id="dob"  class="input" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="email">E-mail Id <span>(Max 35 Characters)</span><span class="validate">*</span></label></td>
+                    <td><input type="email" id="email"  class="input" required max=35/></td>
+                </tr>
+                <tr>
+                    <td><label for="">Do you want your Login Id to be same as E-mail Id?</label></td>
+                    <td>
+                        <input type="radio" id="yes" name="sameLogin" required/> <label for="yes">Yes</label> &nbsp;
+                        <input type="radio" id="no" name="sameLogin" required/>  <label for="no">No</label> 
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="loginId">Login Id <span class="validate">*</span></label></td>
+                    <td>
+                        <input type="text" id="loginId"  class="input" validate min=5 required/>
+                    </td>
+                    <td>
+                        <a href="#">Check Availablity</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password <span class="validate">*</span></label></td>
+                    <td><input type="password" id="password"  class="input" required/></td>
+                    <td><a href="#">Password Policy</a></td>
+                </tr>
+                <tr>
+                    <td><label for="cpassword">Confirm Password <span class="validate">*</span></label></td>
+                    <td><input type="password" id="cpassword"  class="input" required/></td>
+                </tr>
+                <tr>
+                    <td><label for="question">Hint Question <span class="validate">*</span></label></td>
+                    <td>
+                        <select id="question" class="input" required>
+                            <option value="">---- Select -----</option>
+                            <option value="Birth City">Birth City</option>
+                            <option value="Favourite Colour">Favourite Colour</option>
+                            <option value="Favourite Cricketer">Favourite Cricketer</option>
+                            <option value="Favourite Food">Favourite Food</option>
+                            <option value="First School">First School</option>
+                            <option value="Make of First car Owned">Make of First car Owned</option>
+                            <option value="Mother's Maiden Name">Mother's Maiden Name</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="hint">Hint Answer <span class="validate">*</span></label></td>
+                    <td>
+                        <input type="text" id="hint"  class="input" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="captcha">Enter Characters Displayed <span class="validate">*</span></label></td>
+                    <td>
+                        <img src="img/captcha.jpg" alt="" />
+                        <input type="text" id="captcha" class="input" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"><hr /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="footerEnd">
+                        <input type="submit" class="btn" value="Register" />
+                        <input type="reset" class="btn" value="Clear"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

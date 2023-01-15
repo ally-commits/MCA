@@ -1,0 +1,12 @@
+<body id="body">
+    <button onclick="changeColor()">Change</button>
+</body>
+
+<script>
+    let color = "white";
+    function changeColor() { 
+        color = (color == "black" ? "white" : "black");
+        document.getElementById("body").style.backgroundColor = color;
+    }
+</script>
+

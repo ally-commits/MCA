@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <title>Document</title>
+</head>
+<body id="body" class="TWO">
+    <button onclick="setDark()">Dark</button>
+    <button onclick="setLight()">Light</button>
+
+    <script>
+        function setDark () {
+            document.getElementsByTagName("body")[0].style.backgroundColor = "#000";
+            let x = document.getElementById("body")
+
+            x.classList.add("ONE")
+        }
+
+        function setLight() {
+            document.getElementsByTagName("body")[0].style.backgroundColor = "#fff";
+            let x = document.getElementById("body")
+
+            x.classList.remove("ONE")
+        }
+        var obj = new Object({
+            one: "TWO"
+        }) 
+    </script>
+</body>
+
+</html>

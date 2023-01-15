@@ -1,0 +1,157 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+html {
+    font-family: 'Lucida Sans', sans-serif;
+}
+.container {
+    width: 100%;
+    height: 100vh;
+}
+.header,
+footer {
+    height: 120px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    justify-content: center;
+    background-color: #124559;
+}
+footer {
+    height: 60px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    background-color: #124559;
+}
+.h-nav {
+    display: flex;
+    height: 60px;
+    background-color: #01161E;
+    display: flex;
+    align-items: center;
+    position: relative;
+} 
+.h-nav a { 
+    text-decoration: none;
+    padding: 21px 25px;
+    font-size: 14px;
+    color: white;
+} 
+.h-nav a:hover  {
+    background-color: white;
+    color: #124559;
+    cursor: pointer;
+} 
+.nested-nav {
+    position: relative;
+}
+.nested-nav:hover .dropdown{
+    display: flex;
+    flex-direction: column;
+}   
+.dropdown {
+    top: 60px;
+    width: 180px;
+    list-style-type: none;
+    position: absolute;
+    display: none;
+    background-color: white;
+}
+.dropdown li {
+    padding: 16px 10px;
+    font-size: 14px;
+}
+.dropdown li:hover {
+    background-color: rgba(18, 69, 89, 0.1);
+}
+section {
+    height: calc(100vh - 240px);
+    display: flex;
+    width: 100%;
+}
+.v-nav {
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    background-color: #01161E;
+    flex-direction: column;
+} 
+.v-nav a {
+    color: white;
+    padding: 14px;
+    font-size: 14px;
+    text-decoration: none;
+} 
+.v-nav a:hover {
+    background-color: white;
+    color: #124559;
+    cursor: pointer;
+    border-radius: 2px;
+} 
+article {
+    width: calc(100% - 300px);
+    padding: 10px;
+    overflow-y: scroll; 
+    background-color:#317a94;
+    background-size: cover;
+}
+article h1 {
+    color: white;
+    font-size: 22px;
+    line-height: 22px;
+    margin: 30px 0px;
+    padding-top: 20px;
+    text-transform: uppercase;
+}
+article p {
+    color: white;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.gallery img {
+    width: 30%;  
+    height: 220px;
+    object-fit: cover;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    border-radius: 4px;
+    transition: all .5s;
+}
+.gallery img:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.about-us-img {
+    width: 100%;
+} 
+@media only screen and (max-width: 992px) {
+    article {
+        width: 100%;
+    }
+    .v-nav {
+        display: none;
+    }
+    .gallery img {
+        width: 49%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .gallery img {
+        width: 100%;
+        margin-right: 0px;
+    }
+}
